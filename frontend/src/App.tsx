@@ -1,10 +1,15 @@
-import { Button } from '@/components/ui/button'
+import { Navigate, Route, Routes } from 'react-router'
+import Home from '@/pages/Home'
+import Login from '@/pages/Login'
 
 function App() {
   return (
-    <div className='flex min-h-svh flex-col items-center justify-center'>
-      <Button>Click me</Button>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<Home />} />
+      <Route path='*' element={<Navigate to='/login' />} />
+    </Routes>
   )
 }
 
