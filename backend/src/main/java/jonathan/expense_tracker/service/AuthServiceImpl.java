@@ -11,7 +11,7 @@ import jonathan.expense_tracker.dto.AppUserDTO;
 import jonathan.expense_tracker.dto.AuthDTO;
 import jonathan.expense_tracker.dto.AuthResponseDTO;
 import jonathan.expense_tracker.model.AppUser;
-import jonathan.expense_tracker.utils.JwtUtil;
+import jonathan.expense_tracker.security.JwtUtil;
 
 @Service
 public class AuthServiceImpl implements AuthService {

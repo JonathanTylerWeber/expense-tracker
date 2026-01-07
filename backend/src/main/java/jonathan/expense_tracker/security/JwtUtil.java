@@ -1,4 +1,4 @@
-package jonathan.expense_tracker.utils;
+package jonathan.expense_tracker.security;
 
 import java.util.Date;
 import java.util.HashMap;

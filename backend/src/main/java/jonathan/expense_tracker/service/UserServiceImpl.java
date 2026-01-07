@@ -1,5 +1,7 @@
 package jonathan.expense_tracker.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import jonathan.expense_tracker.model.AppUser;
@@ -22,6 +24,11 @@ public class UserServiceImpl implements UserService {
   @Override
   public AppUser findByUsername(String username) {
     return userRepository.findByUsername(username).orElse(null);
+  }
+
+  @Override
+  public Optional<AppUser> findUserById(Long id) {
+    return userRepository.findById(id);
   }
 
 }

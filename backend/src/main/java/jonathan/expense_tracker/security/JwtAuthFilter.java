@@ -13,7 +13,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jonathan.expense_tracker.service.UserDetailsServiceImpl;
-import jonathan.expense_tracker.utils.JwtUtil;
 
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {

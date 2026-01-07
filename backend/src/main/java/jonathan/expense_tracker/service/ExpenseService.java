@@ -6,11 +6,12 @@ import java.util.Optional;
 import jonathan.expense_tracker.model.Expense;
 
 public interface ExpenseService {
-  List<Expense> getExpenseByDay(String date);
-  List<Expense> getExpenseByCategoryAndMonth(String category, String month);
-  List<String> getAllExpenseCategories();
-  Optional<Expense> getExpenseById(Long Id);
-  Expense addExpense(Expense expense);
-  boolean updateExpense(Expense expense);
-  boolean deleteExpense(Long id);
+  List<Expense> getAllUserExpenses(Long userId);
+  List<Expense> getExpenseByDay(String date, Long userId);
+  List<Expense> getExpenseByCategoryAndMonth(String category, String month, Long userId);
+  List<String> getAllExpenseCategories(Long userId);
+  Optional<Expense> getExpenseById(Long Id, Long userId);
+  Expense addExpense(Expense expense, Long userId);
+  boolean updateExpense(Expense expense, Long userId);
+  boolean deleteExpense(Long id, Long userId);
 }

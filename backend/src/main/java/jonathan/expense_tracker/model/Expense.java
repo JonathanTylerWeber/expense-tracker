@@ -1,9 +1,14 @@
 package jonathan.expense_tracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Expense {
@@ -19,8 +24,13 @@ public class Expense {
   private String account;
   private String note;
 
-  // --- Getters ---
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  @JsonIgnore
+  private AppUser user;
 
+
+  
   public Long getId() {
     return id;
   }
@@ -49,19 +59,8 @@ public class Expense {
     return note;
   }
 
-  // --- toString() ---
-
-  @Override
-  public String toString() {
-    return "Expense{" +
-        "id=" + id +
-        ", expenseType=" + expenseType +
-        ", date='" + date + '\'' +
-        ", amount=" + amount +
-        ", category='" + category + '\'' +
-        ", account='" + account + '\'' +
-        ", note='" + note + '\'' +
-        '}';
+  public AppUser getUser() {
+    return user;
   }
 
   public void setId(Long id) {
@@ -90,5 +89,9 @@ public class Expense {
 
   public void setNote(String note) {
     this.note = note;
+  }
+
+  public void setUser(AppUser user) {
+    this.user = user;
   }
 }
